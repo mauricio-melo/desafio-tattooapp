@@ -52,11 +52,15 @@ public class TattooService {
         tattooRepository.delete(id);
     }
 
-    private TattooEntity findById(long id) {
+    public TattooEntity findById(long id) {
         return tattooRepository.findOne(id);
     }
 
     public List<TattooEntity> listar(){
+        return tattooRepository.findAll();
+    }
+
+    public List<TattooEntity> findAll() {
         return tattooRepository.findAll();
     }
 
