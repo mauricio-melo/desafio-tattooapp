@@ -12,9 +12,8 @@ import java.math.BigDecimal;
 @Builder
 public class TattooRequestDTO {
 
-    @NotNull(message = "Campo \"id\" precisa ser informado.")
     @ApiModelProperty(notes = "ID da tatuagem.", example = "1", required = true, position = 0)
-    private long id;
+    private Long id;
 
     @NotNull(message = "Campo \"descricao\" precisa ser informado.")
     @ApiModelProperty(notes = "Descrição da tatuagem.", example = "Lobo preto e branco com o olho azul.", required = true, position = 1)

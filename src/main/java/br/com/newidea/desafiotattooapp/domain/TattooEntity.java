@@ -12,25 +12,26 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tattoo")
+@Table(name = "tattooapp")
 public class TattooEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "id_tattoo")
+    private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String descricao;
 
-    @NotNull
+    @Column(nullable = false)
     private String localCorpo;
 
-    @NotNull
+    @Column(nullable = false)
     private String estilo;
 
-    @NotNull
+    @Column(nullable = false)
     private int numeroSessoes;
 
-    @NotNull
+    @Column(nullable = false)
     private BigDecimal valor;
 }

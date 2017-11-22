@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Builder
 public class TattooDTO {
 
-    private long id;
+    private Long id;
     private String descricao;
     private String localCorpo;
     private String estilo;

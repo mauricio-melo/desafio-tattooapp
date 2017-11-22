@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class TattooResponseDTO {
 
     @ApiModelProperty(notes = "ID da tatuagem.", example = "1", required = true, position = 0)
-    private long id;
+    private Long id;
 
     @ApiModelProperty(notes = "Descrição da tatuagem.", example = "Lobo preto e branco com o olho azul.", required = true, position = 1)
     private String descricao;
