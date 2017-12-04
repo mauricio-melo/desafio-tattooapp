@@ -15,7 +15,7 @@ public class HttpSecurityCustomConfig {
     @Bean
     public UserDetailsService userDetailsService() throws Exception {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("admin").password("desafioTattooapp").roles("USER", "ADMIN").build());
+        manager.createUser(User.withUsername("admin").password("desafioTattooApp").roles("USER", "ADMIN").build());
         return manager;
     }
 

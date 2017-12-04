@@ -22,7 +22,7 @@ public class IOService {
     private ServletContext servletContext;
 
 
-    public File getFile(@NonNull final Long userId, String imageFileName, @NonNull final String _64ByteBaseImage) {
+    public File getFile(String imageFileName, @NonNull final String _64ByteBaseImage) {
 
         //Converte base64 para byte[]
         byte[] decodedByteArray = get64DecodedByteArray(_64ByteBaseImage);
@@ -31,7 +31,7 @@ public class IOService {
         final String destinationPath = servletContext.getRealPath("/");
 
         //armazena o nome do arquivo temporario
-        final String temporaryFileName = getTemporaryFileName(userId, imageFileName);
+        final String temporaryFileName = getTemporaryFileName(imageFileName);
 
         //armazena o caminho e o nome do arquivo temporario
         Path destinationFile = Paths.get(destinationPath, temporaryFileName);
@@ -45,7 +45,10 @@ public class IOService {
 
             //pega a ultima imagem setada no diretorio
             imageFile.setLastModified(Calendar.getInstance().getTimeInMillis());
+
+            //retorna arquivo
             return imageFile;
+
         } catch (IOException e) {
             throw new IOServiceException(e.getMessage());
         }
@@ -64,7 +67,7 @@ public class IOService {
         return decoder.decode(encodedString);
     }
 
-    public String getTemporaryFileName(@NonNull final Long userId, String fileName) {
+    public String getTemporaryFileName(String fileName) {
 
         final Calendar now = Calendar.getInstance();
         final int year = now.get(Calendar.YEAR);
@@ -78,8 +81,8 @@ public class IOService {
         final int endIndex = fileName.lastIndexOf(".");
         final String extension = fileName.substring(endIndex);
 
-        return "user"
-                .concat(userId + "")
+        return "teste"
+                .concat("")
                 .concat("y" + year)
                 .concat("m" + month)
                 .concat("d" + day)
