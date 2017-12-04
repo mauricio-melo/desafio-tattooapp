@@ -24,6 +24,12 @@ public class TattooService {
     @Autowired
     private TattooTransactionalService tattooTransactionalService;
 
+    @Autowired
+    private IOService ioService;
+
+    @Autowired
+    private DropBoxService dropBoxService;
+
     //Salvar tattoo no banco de dados(post)
     public TattooEntity create(@NonNull final TattooDTO dto) {
         //Tradução de DTO para Entity
@@ -56,9 +62,6 @@ public class TattooService {
         return tattooRepository.findOne(id);
     }
 
-    public List<TattooEntity> listar(){
-        return tattooRepository.findAll();
-    }
 
     public List<TattooEntity> findAll() {
         return tattooRepository.findAll();

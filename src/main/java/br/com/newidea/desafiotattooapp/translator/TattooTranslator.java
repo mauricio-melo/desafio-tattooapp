@@ -22,6 +22,7 @@ public class TattooTranslator {
                 .numeroSessoes(requestDTO.getNumeroSessoes())
                 .valor(requestDTO.getValor())
                 .build();
+
     }
 
     //Traduz o DTO para entity, recebendo o DTO por parametro
@@ -58,7 +59,7 @@ public class TattooTranslator {
         List<TattooResponseDTO> responseDTOList = new ArrayList<TattooResponseDTO>();
         entityList.forEach(
                 tattooEntity ->
-                        responseDTOList.add(toResponse(tattooEntity))
+                responseDTOList.add(toResponse(tattooEntity))
         );
         return responseDTOList;
     }

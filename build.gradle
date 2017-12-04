@@ -22,18 +22,54 @@ repositories {
 	mavenCentral()
 }
 
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.0'
+}
+
+task stage(type: Copy, dependsOn: [clean, build]) {
+	from jar.archivePath
+	into project.rootDir
+	rename {
+		'app.jar'
+	}
+}
+stage.mustRunAfter(clean)
+
+clean << {
+	project.file('app.jar').delete()
+}
+
 
 dependencies {
+	// Spring Framework
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-validation')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('org.springframework.boot:spring-boot-devtools')
+	compile("org.springframework.boot:spring-boot-devtools")
+
+	// h2
 	runtime('com.h2database:h2')
+
+	// MySQL
 	runtime('mysql:mysql-connector-java')
+
+	// Lombok
 	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 
 	// Swagger
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+
+	// Test
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	// Heroku Logs
+	compile group: 'io.airbrake', name: 'airbrake-java', version: '2.2.8'
+
+	// Dropbox
+	compile 'com.dropbox.core:dropbox-core-sdk:3.0.3'
+
+
 }
