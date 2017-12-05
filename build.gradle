@@ -22,6 +22,7 @@ repositories {
 	mavenCentral()
 }
 
+
 configurations {
 	providedRuntime
 }
@@ -33,9 +34,11 @@ test {
 	}
 }
 
+
 task wrapper(type: Wrapper) {
 	gradleVersion = '4.0'
 }
+
 
 task stage(type: Copy, dependsOn: [clean, build]) {
 	from jar.archivePath
@@ -44,6 +47,8 @@ task stage(type: Copy, dependsOn: [clean, build]) {
 		'app.jar'
 	}
 }
+
+
 stage.mustRunAfter(clean)
 
 clean << {
