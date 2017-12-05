@@ -22,6 +22,17 @@ repositories {
 	mavenCentral()
 }
 
+configurations {
+	providedRuntime
+}
+
+
+test {
+	testLogging {
+		exceptionFormat = 'full'
+	}
+}
+
 task wrapper(type: Wrapper) {
 	gradleVersion = '4.0'
 }
