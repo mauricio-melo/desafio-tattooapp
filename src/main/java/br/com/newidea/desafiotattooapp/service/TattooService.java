@@ -63,7 +63,7 @@ public class TattooService {
 
             //Deletando arquivo temporario gerado
             //ta dando NoSuchElementException TODO: VER COM O FABIO
-            //ioService.deleteFile(jobPictureFile.get());
+            ioService.deleteFile(jobPictureFile.get());
         }
     }
 

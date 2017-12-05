@@ -36,10 +36,10 @@ public class TattooRequestDTO {
     @ApiModelProperty(notes = "Valor sugerido da tatuagem.", example = "2500.00", required = true, position = 5)
     private BigDecimal valor;
 
-    @ApiModelProperty(notes = "Nome da imagem convertida para base 64 em bytes.", example = "imagem.bpm", required = false, position = 10)
+    @ApiModelProperty(notes = "Nome da imagem convertida para base 64 em bytes.", example = "imagem.bpm", required = false, position = 6)
     private String imageFileName;
 
-    @ApiModelProperty(notes = "Imagem do Job convertida para base 64 em bytes.", example = "LKODOIQoiioqj1091nKJSDOJQDWPKLlkjqdopqwdjqwdoiqwoi109-192IJ12IODIODDNAJOIASHIDOAHHh08H9h98", required = false, position = 11)
+    @ApiModelProperty(notes = "Imagem do Job convertida para base 64 em bytes.", example = "LKODOIQoiioqj1091nKJSDOJQDWPKLlkjqdopqwdjqwdoiqwoi109-192IJ12IODIODDNAJOIASHIDOAHHh08H9h98", required = false, position = 7)
     private String base64ByteImagem;
 
 }
