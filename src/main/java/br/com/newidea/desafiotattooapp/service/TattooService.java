@@ -39,11 +39,11 @@ public class TattooService {
         TattooEntity entity = translator.toEntity(dto);
 
         //Obtendo file temporary da imagem
-        Optional<File> jobPictureFile = getPictureFile(dto, entity);
+        Optional<File> tattooPictureFile = getPictureFile(dto, entity);
         try {
 
             //Atualizando picture referente a entidade
-            final Optional<DropBoxFileUploadDTO> dropBoxFileUpload = updateUploadedPicture(entity, jobPictureFile);
+            final Optional<DropBoxFileUploadDTO> dropBoxFileUpload = updateUploadedPicture(entity, tattooPictureFile);
 
             //Atualizando valores referentes ao Upload na entidade
             entity = updateUploadData(entity, dropBoxFileUpload);
@@ -54,7 +54,7 @@ public class TattooService {
         } catch (Exception e) {
 
             try {
-                dropBoxService.deleteUploadedFile(TattooConstants.DROP_BOX_JOB_PATH, jobPictureFile.get().getName());
+                dropBoxService.deleteUploadedFile(TattooConstants.DROP_BOX_JOB_PATH, tattooPictureFile.get().getName());
             } catch (Exception e2) {
             }
             throw e;
@@ -63,7 +63,7 @@ public class TattooService {
 
             //Deletando arquivo temporario gerado
             //ta dando NoSuchElementException TODO: VER COM O FABIO
-            ioService.deleteFile(jobPictureFile.get());
+            //ioService.deleteFile(tattooPictureFile.get());
         }
     }
 

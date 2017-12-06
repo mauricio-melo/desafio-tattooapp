@@ -29,4 +29,7 @@ public class TattooResponseDTO {
     @NumberFormat(pattern = "#,##0.00")
     @ApiModelProperty(notes = "Valor sugerido da tatuagem.", example = "2500.00", required = true, position = 5)
     private BigDecimal valor;
+
+    @ApiModelProperty(notes = "URL da imagem do job.", example = "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAshAAAAJGExMTJjMDExLWNkMWEtNDRkOC04NmI5LWQ0ZjAxNzM3Yzk4Yw.jpg", position = 4)
+    private String imageUrl;
 }

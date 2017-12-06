@@ -30,7 +30,6 @@ public class TattooResource {
     private TattooService service;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Criação de um novo recurso tattoo", responseReference = "Novo recurso criado.")
     public ResponseEntity<TattooEntity> create(@Valid @RequestBody TattooRequestDTO requestDTO) {
 

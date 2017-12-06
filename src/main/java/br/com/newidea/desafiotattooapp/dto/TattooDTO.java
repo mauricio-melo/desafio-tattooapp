@@ -17,6 +17,6 @@ public class TattooDTO {
     private BigDecimal valor;
 
     private String imageFileName;
-
     private String base64ByteImagem;
+    private String imageUrl;
 }
